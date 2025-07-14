@@ -1,0 +1,50 @@
+
+##### تاریخ: شنبه - 1404/04/22 
+
+- Start Task: Roshan_Task01_00_00
+- Create Virtual Environment 
+	- `py -m venv Roshan_Task01_00_00`
+	- `pip install Django`
+	- `pip install djangorestframework`
+	- `pip install django-filter`
+- Create Django Project 
+	- `django-admin startproject Task01_00_00_News_Builder_API`
+- `cd Task01_00_00_News_Builder_API`
+- Create Django App
+	- `py manage.py startapp Task01_00_00_News_Page_App`
+- Open Task01_00_00 in VS Code with CMD 
+	- `code .`
+- Create files for Task01_00_00
+	- `serializers.py`
+	- `filters.py`
+	- `urls.py`
+- Configure Django Project ,file `settings.py`
+	- Add package and App in `INSTALLED_APPS`
+		- `'rest_framework',`
+		- `'django_filters',`
+		- `'Task01_00_00_News_Page_App',`
+- Define models in file `models.py`
+- Prepare Database 
+	- Apply model migrations to the database:
+	    - `py manage.py makemigrations Task01_00_00_News_Page_App`
+	- Create tables in the database:
+	    - `py manage.py migrate`
+- Define serializers in file `serializers.py`
+- Define filters in file `filters.py`
+- Define views in file `views.py`
+- Define urls 
+	- Django App in file `urls.py`
+	- Django Project in file `urls.py`
+- Configure Django Project ,file `settings.py`
+	- Add `DEFAULT_FILTER_BACKENDS` in `REST_FRAMEWORK` 
+- Insert Sample Data in Database for real test
+	- Use python shell for Add test News
+		- `python manage.py shell`
+- Create `createsuperuser` for Django Admin
+	- `python manage.py createsuperuser`
+- Import models in file `admin.py`
+	- `admin.site.register()`
+- Write test for Django App in file `tests.py`
+- run file `tests.py` 
+	- `py manage.py test`
+
