@@ -1,0 +1,57 @@
+#version: "3.9"
+
+services:
+  web:
+    build: .
+    command: gunicorn Task03_01_00_News_Builder_API.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+    environment:
+      - DJANGO_SETTINGS_MODULE=Task03_01_00_News_Builder_API.settings
+
+  redis:
+    image: redis:7
+####    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    restart: always
+
+  celery:
+    build: .
+    command: celery -A Task03_01_00_News_Builder_API worker -l info
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - DJANGO_SETTINGS_MODULE=Task03_01_00_News_Builder_API.settings
+
+
+  beat:
+    build: .
+    command: celery -A Task03_01_00_News_Builder_API beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - DJANGO_SETTINGS_MODULE=Task03_01_00_News_Builder_API.settings
+
+
+  flower:
+    build: .
+    command: celery -A Task03_01_00_News_Builder_API flower --port=5555
+    ports:
+      - "5555:5555"
+    depends_on:
+      - redis
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - DJANGO_SETTINGS_MODULE=Task03_01_00_News_Builder_API.settings
+
