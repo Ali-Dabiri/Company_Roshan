@@ -108,7 +108,7 @@
 ##### تاریخ: 5 شنبه - 1404/04/26
 
 - Start Task: Roshan_Task02_01_00 
-	- **/ ((Dropped Task: Roshan_Task02_01_00 & Start again with new programming method)) **
+	- NOTE: **/ ((Dropped Task: Roshan_Task02_01_00 & Start again with new programming method)) **
 - Create Virtual Environment 
 	- `py -m venv Roshan_Task02_01_00`
 - `cd Roshan_Task02_01_00`
@@ -183,7 +183,7 @@
 
 --------------------
 
-##### جمعه: 1404/04/27 
+##### تاریخ: جمعه - 1404/04/27 
 
 - Start Task: Roshan_Task02_01_00
 - Create Virtual Environment 
@@ -236,10 +236,271 @@
 - `cd Task02_01_00_News_Page_App`
 - Create folder `management`
 - `cd management`
+- Create file `__init__.py`
 - Create folder `commands`
 - `cd commands`
+- Create file `__init__.py`
 - Create file scrapy 
 	- `Task02_01_00_Scrapy_Zoomit01_00_00.py`
 - write scraper program for Task02_01_00_Scrapy_Zoomit01_00_00
 - run file `Task02_01_00_Scrapy_Zoomit01_00_00.py`
-	- `py manage.py Task02_01_00_Scrapy_Zoomit01_00_00.py`
+	- `py manage.py Task02_01_00_Scrapy_Zoomit01_00_00`
+
+--------------------------
+
+##### تاریخ: شنبه - 1404/04/28
+
+- Start Task: Roshan_Task01_01_00
+- Create Virtual Environment 
+	- `py -m venv Roshan_Task01_01_00`
+- Install required packages for Task01_01_00
+	- `pip install Django`
+	- `pip install djangorestframework`
+	- `pip install django-filter`
+	- `pip install drf-spectacular`
+- Create Django Project 
+	- `django-admin startproject Task01_01_00_News_Builder_API`
+- `cd Task01_01_00_News_Builder_API`
+- Create Django App
+	- `py manage.py startapp Task01_01_00_News_Page_App`
+- Open Task01_01_00 in VS Code with CMD 
+	- `code .`
+- Create files for Task01_01_00
+	- `serializers.py`
+	- `filters.py`
+	- `urls.py`
+- Configure Django Project ,file `settings.py`
+	- Add package and App in `INSTALLED_APPS`
+		- `'rest_framework',`
+		- `'django_filters',`
+		- `'Task01_01_00_News_Page_App',`
+		- `'drf_spectacular',`
+- Define models in file `models.py`
+- Prepare Database 
+	- Apply model migrations to the database:
+	    - `py manage.py makemigrations Task01_01_00_News_Page_App`
+	- Create tables in the database:
+	    - `py manage.py migrate`
+- Define serializers in file `serializers.py`
+- Define filters in file `filters.py`
+- Define views in file `views.py`
+- Define urls 
+	- Django App in file `urls.py`
+	- Django Project in file `urls.py`
+- Configure Django Project ,file `settings.py`
+	- Add `DEFAULT_FILTER_BACKENDS` in `REST_FRAMEWORK` 
+- Create `createsuperuser` for Django Admin
+	- `python manage.py createsuperuser`
+- Import models in file `admin.py`
+	- `admin.site.register()`
+- Write test for Django App in file `tests.py`
+- run file `tests.py` 
+	- `py manage.py test`
+- Configure Django Project ,file `settings.py`
+	- Add `'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',` in  `REST_FRAMEWORK`
+	- Add `SPECTACULAR_SETTINGS`
+- Modify urls 
+	- Django Project in file `urls.py`
+		- Add package `drf_spectacular.views` 
+			- Add module `SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView`
+
+---------------------
+
+##### تاریخ: 2 شنبه - 1404/04/30
+
+- Start Task: Roshan_Task03_00_00
+- Create Virtual Environment 
+	- `py -m venv Roshan_Task03_00_00`
+- `cd Roshan_Task03_00_00`
+- `cd Scripts`
+- Active Virtual Environment
+	- `activate.bat`
+- Install required packages for Task03_00_00
+	- `pip install Django`
+	- `pip install djangorestframework`
+	- `pip install django-filter`
+	- `pip install scrapy`
+	- `pip install selenium`
+	- `pip install webdriver-manager`
+	- `pip install celery`
+	- `pip install django-celery-beat`
+	- `pip install flower`
+	- `pip install redis`
+	- `pip install gunicorn`
+- Create Django Project 
+	- `django-admin startproject Task03_00_00_News_Builder_API`
+- `cd Task03_00_00_News_Builder_API`
+- Create Django App
+	- `py manage.py startapp Task03_00_00_News_Page_App`
+- Open Task03_00_00 in VS Code with CMD 
+	- `code .`
+- Create files for Task03_00_00
+	- `serializers.py`
+	- `filters.py`
+	- `urls.py`
+- Configure Django Project ,file `settings.py`
+	- Add package and App in `INSTALLED_APPS`
+		- `'rest_framework',`
+		- `'django_filters',`
+		- `'Task03_00_00_News_Page_App',`
+		-  `'django_celery_beat',`
+- Define models in file `models.py`
+- Prepare Database 
+	- Apply model migrations to the database:
+	    - `py manage.py makemigrations Task03_00_00_News_Page_App`
+	- Create tables in the database:
+	    - `py manage.py migrate`
+- Define serializers in file `serializers.py`
+- Define filters in file `filters.py`
+- Define views in file `views.py`
+- Define urls 
+	- Django App in file `urls.py`
+	- Django Project in file `urls.py`
+- Configure Django Project ,file `settings.py`
+	- Add `DEFAULT_FILTER_BACKENDS` in `REST_FRAMEWORK` 
+- Write test for Django App in file `tests.py`
+- Create `createsuperuser` for Django Admin
+	- `python manage.py createsuperuser`
+- Import models in file `admin.py`
+	- `admin.site.register()`
+- `cd Task03_00_00_News_Page_App`
+- Create folder `management`
+- `cd management`
+- Create file `__init__.py`
+- Create folder `commands`
+- `cd commands`
+- Create file `__init__.py`
+- Create file scrapy 
+	- `Task03_00_00_Scrapy_Zoomit01_00_00.py`
+- Write scraper program for Task03_00_00_Scrapy_Zoomit01_00_00
+	- Crawl URL: 
+		- `https://www.zoomit.ir/search/news/`
+- run file `Task03_00_00_Scrapy_Zoomit01_00_00.py`
+	- `py manage.py Task03_00_00_Scrapy_Zoomit01_00_00`
+- Create file `celery.py` in Django Project (`Task03_00_00_News_Builder_API`)
+	- `celery.py`
+- Write celery program for Django Project in file `celery.py`
+- Modify file `__init__.py` in Djnago Project
+- Configure Django Project ,file `settings.py`
+	- Add celery setting 
+		- `CELERY_BROKER_URL`
+		- `CELERY_ACCEPT_CONTENT`
+		- `CELERY_TASK_SERIALIZER`
+		- `CELERY_RESULT_BACKEND`
+- Create `tasks.py` in Django App (`Task03_00_00_News_Builder_App`)
+- Write task program for Django in file `tasks.py`
+- Create `Dockerfile` and `docker-compose.yml` in Django Project
+- Write Dockerfile for Django Project in file `Dockerfile`
+- Write docker-composer for Django Project in file `docker-compose.yml`
+- Building Docker Images and Launching Containers
+	- `docker-compose build`
+- Run all service 
+	- `docker-compose up`
+- Running Scrapy through Celery
+	- `docker-compose exec web python manage.py Task03_00_00_Scrapy_Zoomit01_00_00`
+	- `docker-compose exec web python manage.py celery call run_scraper_command`
+	- 
+- Modify Scraper file `Task03_00_00_Scrapy_Zoomit01_00_00.py` /// ((headless WebDriver))
+	- Add selenium Option package
+	- and commend lines
+		- `#driver = webdriver.Chrome()`
+		- `#news_page_driver = webdriver.Chrome()`
+- Improve settings file in Django Project, file `settings.py`
+	- `import os`
+	- `STATIC_URL = 'static/'`
+	- `STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')`
+- run command 
+	- `docker-compose exec web python manage.py collectstatic --noinput`
+- Prepare Database via Docker
+	- run `docker compose up` then
+		- Create tables in the Database via Docker:
+			- run `docker-compose exec web python manage.py migrate`
+- for check test redis
+	- `docker-compose exec redis redis-cli ping`
+- Add interval in panel Django admin
+- Add Periodic tasks in panel Django admin
+- for monitoring docker service
+	- `docker stats`
+	- `docker compose logs -f celery`
+
+-------------------
+
+##### تاریخ: 5 شنبه - 1404/05/02
+
+- Start Task: Roshan_Task02_02_00
+- Create Virtual Environment 
+	- `py -m venv Roshan_Task02_02_00`
+- `cd Roshan_Task02_02_00`
+- `cd Scripts`
+- Active Virtual Environment
+	- `activate.bat`
+- Install required packages for Task02_02_00
+	- `pip install Django`
+	- `pip install djangorestframework`
+	- `pip install django-filter`
+	- `pip install scrapy`
+	- `pip install selenium`
+	- `pip install webdriver-manager`
+- Create Django Project 
+	- `django-admin startproject Task02_02_00_News_Builder_API`
+- `cd Task02_02_00_News_Builder_API`
+- Create Django App
+	- `py manage.py startapp Task02_02_00_News_Page_App`
+- Open Task02_02_00 in VS Code with CMD 
+	- `code .`
+- Create files for Task02_02_00
+	- `serializers.py`
+	- `filters.py`
+	- `urls.py`
+- Configure Django Project ,file `settings.py`
+	- Add package and App in `INSTALLED_APPS`
+		- `'rest_framework',`
+		- `'django_filters',`
+		- `'Task02_02_00_News_Page_App',`
+- Define models in file `models.py`
+- Prepare Database 
+	- Apply model migrations to the database:
+	    - `py manage.py makemigrations Task02_02_00_News_Page_App`
+	- Create tables in the database:
+	    - `py manage.py migrate`
+- Define serializers in file `serializers.py`
+- Define filters in file `filters.py`
+- Define views in file `views.py`
+- Define urls 
+	- Django App in file `urls.py`
+	- Django Project in file `urls.py`
+- Configure Django Project ,file `settings.py`
+	- Add `DEFAULT_FILTER_BACKENDS` in `REST_FRAMEWORK` 
+- Import models in file `admin.py`
+	- `admin.site.register()`
+- Create `createsuperuser` for Django Admin
+	- `py manage.py createsuperuser`
+- `cd Task02_02_00_News_Page_App`
+- Create folder `management`
+	- `mkdir management`
+- `cd management`
+- Create file `__init__.py`
+- Create folder `commands`
+	- `mkdir commands`
+- `cd commands`
+- Create file `__init__.py`
+- Create file scrapy 
+	- `Task02_02_00_Scrapy_Zoomit01_00_00.py`
+- Write scraper program for Task02_02_00_Scrapy_Zoomit01_00_00
+	- Crawl URL: 
+		- `https://www.zoomit.ir/archive/`
+- run file `Task02_02_00_Scrapy_Zoomit01_00_00.py`
+	- `py manage.py Task02_02_00_Scrapy_Zoomit01_00_00`
+- Create new file scrapy in commands folder
+	- `Task02_02_00_Scrapy_Zoomit01_01_00.py`
+- Write scraper program for Task02_02_00_Scrapy_Zoomit01_01_00 /// ((Windows Handling))
+	- Crawl URL: 
+		- `https://www.zoomit.ir/archive/`
+- run file `Task02_02_00_Scrapy_Zoomit01_01_00.py`
+	- `py manage.py Task02_02_00_Scrapy_Zoomit01_01_00`
+- Write scraper program for Task02_02_00_Scrapy_Zoomit01_02_00 /// ((headless WebDriver))
+	- Crawl URL: 
+		- `https://www.zoomit.ir/archive/`
+- run file `Task02_02_00_Scrapy_Zoomit01_02_00.py`
+	- `py manage.py Task02_02_00_Scrapy_Zoomit01_02_00`
+
